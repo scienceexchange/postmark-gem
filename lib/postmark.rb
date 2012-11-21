@@ -99,7 +99,7 @@ module Postmark
     attachments = message.export_attachments
 
     options["From"]        = message['from'].to_s                       if message.from
-    options["ReplyTo"]     = Array[message.reply_to].flatten.join(", ") if message.reply_to
+    options["ReplyTo"]     = message['reply-to'].to_s                   if message.reply_to
     options["To"]          = message['to'].to_s                         if message.to
     options["Cc"]          = message['cc'].to_s                         if message.cc
     options["Bcc"]         = Array[message.bcc].flatten.join(", ")      if message.bcc
